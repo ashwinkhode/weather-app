@@ -23,6 +23,7 @@ main {
     min-height: 100vh;
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
     padding: 25px;
+    position: relative;
 }
 
 .search-box {
@@ -100,4 +101,34 @@ main {
     font-size: 48px;
     font-weight: 700;
     text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+footer {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    display: block;
+    color: white;
+    width: 97.5vw;
+    text-align: center;
+    bottom: 10px;
+}
+
+.social {
+    list-style: none;
+    display: inline-flex;
+}
+
+ul {
+    margin: 10px;
+}
+
+li {
+    padding: 0 5px;
+}
+
+.coffee img {
+    height: 51px;
+    width: 217px;
+    border-radius: 5px;
 }

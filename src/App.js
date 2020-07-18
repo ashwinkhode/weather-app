@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
+import { FaGithub, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa"
+import { IconContext } from "react-icons";
 
-const api = {
-    key: 'faefb095451f8cd5ca2571326f754483',
-    base: 'https://api.openweathermap.org/data/2.5/'
-}
 
 function App() {
 
@@ -12,7 +10,7 @@ function App() {
 
     const search = evt => {
         if (evt.key === "Enter") {
-            fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+            fetch(`${process.env.base}weather?q=${query}&units=metric&APPID=${process.env.apikey}`)
                 .then(res => res.json())
                 .then(result => {
                     setWeather(result)
@@ -31,6 +29,13 @@ function App() {
         let year = d.getFullYear();
 
         return `${day} ${date} ${month} ${year}`
+    }
+
+    const social = {
+        github: "https://github.com/ashwinkhode/weather-app",
+        twitter: "https://twitter.com/ashwin4real",
+        linkedin: "https://www.linkedin.com/in/ashwin-khode/",
+        instagram: "https://www.instagram.com/ui.ashwin/"
     }
 
     return (
@@ -60,7 +65,32 @@ function App() {
                         </div>
                     </div>
                 ) : ('')}
+
+                <footer>
+                <p>Made with ♥ by Ashwin Khode</p>
+                <ul className="social">
+                <IconContext.Provider value={{ style: {fontSize: '25px', color: "rgb(255, 255, 255)"}}}>
+                    <li><a href={social.github} rel="noopener noreferrer" target="_blank"><FaGithub /></a></li>
+                </IconContext.Provider>
+                <IconContext.Provider value={{ style: {fontSize: '25px', color: "rgb(255, 255, 255)"}}}>
+                    <li><a href={social.twitter} rel="noopener noreferrer" target="_blank"><FaTwitter /></a></li>
+                </IconContext.Provider>
+                <IconContext.Provider value={{ style: {fontSize: '25px', color: "rgb(255, 255, 255)"}}}>
+                    <li><a href={social.linkedin} rel="noopener noreferrer" target="_blank"><FaLinkedin /></a></li>
+                </IconContext.Provider>
+                <IconContext.Provider value={{ style: {fontSize: '25px', color: "rgb(255, 255, 255)"}}}>
+                    <li><a href={social.instagram} rel="noopener noreferrer" target="_blank"><FaInstagram /></a></li>
+                </IconContext.Provider>
+                </ul>
+                
+               
+                <div className="coffee">
+                <a href="https://www.buymeacoffee.com/ashwinkhode" target="_blank" rel="noopener noreferrer"><img src="https://cdn.buymeacoffee.com/buttons/default-white.png" alt="Buy Me A Coffee" /></a>
+                </div>
+               
+            </footer>
             </main>
+            
         </div>
     );
 }
